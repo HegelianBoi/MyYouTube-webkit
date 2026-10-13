@@ -1,5 +1,5 @@
 ARCHS = armv7
-TARGET = iphone:clang:latest:10.0
+TARGET = iphone:clang:14.5:10.0
 
 include $(THEOS)/makefiles/common.mk
 
@@ -10,4 +10,5 @@ MyYouTube_CFLAGS = -fobjc-arc
 
 include $(THEOS_MAKE_PATH)/application.mk
 
-MyYouTube_CODESIGN_FLAGS = -Sentitlements
+internal-stage::
+	cp Icon.png $(THEOS_STAGING_DIR)/Applications/MyYouTube.app/
