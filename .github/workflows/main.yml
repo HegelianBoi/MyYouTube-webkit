@@ -24,6 +24,7 @@ jobs:
           mkdir -p extracted Payload final_ipa
           dpkg-deb -R packages/*.deb extracted/
           mv extracted/Applications/MyYouTube.app Payload/
+          ldid -S Payload/MyYouTube.app/
           zip -r final_ipa/MyYouTube.ipa Payload
 
       - name: Upload Artifact
