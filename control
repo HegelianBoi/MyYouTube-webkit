@@ -1,0 +1,8 @@
+Package: com.custom.myyoutube
+Name: MyYouTube
+Version: 1.0
+Architecture: iphoneos-arm
+Description: A custom YouTube wrapper.
+Maintainer: iPadUser
+Author: iPadUser
+Section: Applications
