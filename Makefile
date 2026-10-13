@@ -9,7 +9,5 @@ MyYouTube_FRAMEWORKS = UIKit WebKit
 MyYouTube_CFLAGS = -fobjc-arc
 
 include $(THEOS_MAKE_PATH)/application.mk
-MyYouTube_CODESIGN_FLAGS = -Sentitlements.xml
 
-internal-stage::
-	cp Icon.png $(THEOS_STAGING_DIR)/Applications/MyYouTube.app/
+MyYouTube_CODESIGN_FLAGS = -Sentitlements
