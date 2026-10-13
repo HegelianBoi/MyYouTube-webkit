@@ -10,7 +10,8 @@ jobs:
       - name: Install Dependencies
         run: |
           sudo apt-get update && sudo apt-get install -y fakeroot xz-utils curl
-          brew install ldid
+          sudo wget -qO /usr/local/bin/ldid https://github.com/ProcursusTeam/ldid/releases/latest/download/ldid_linux_x86_64
+          sudo chmod +x /usr/local/bin/ldid
 
       - name: Setup Theos
         run: |
