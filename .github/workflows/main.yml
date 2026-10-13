@@ -20,10 +20,14 @@ jobs:
 
       - name: Build App
         run: |
-          make package FORMAT=ipa FINALPACKAGE=1
+          make package FINALPACKAGE=1
+          mkdir -p extracted Payload final_ipa
+          dpkg-deb -R packages/*.deb extracted/
+          mv extracted/Applications/MyYouTube.app Payload/
+          zip -r final_ipa/MyYouTube.ipa Payload
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
           name: MyYouTube
-          path: packages/
+          path: final_ipa/
