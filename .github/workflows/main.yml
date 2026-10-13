@@ -18,17 +18,19 @@ jobs:
           bash -c "$(curl -fsSL https://raw.githubusercontent.com/theos/theos/master/bin/install-theos)"
           echo "THEOS=~/theos" >> $GITHUB_ENV
 
-      - name: Build App
+     - name: Build App
         run: |
           make package FINALPACKAGE=1
           mkdir -p extracted Payload final_ipa
           dpkg-deb -R packages/*.deb extracted/
           mv extracted/Applications/MyYouTube.app Payload/
-          ldid -S Payload/MyYouTube.app/
+          ldid -S Payload/MyYouTube.app/MyYouTube
           zip -r final_ipa/MyYouTube.ipa Payload
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
+          name: MyYouTube
+          path: final_ipa/
           name: MyYouTube
           path: final_ipa/
